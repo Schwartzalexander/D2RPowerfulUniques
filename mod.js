@@ -157,19 +157,6 @@ function addSkillTreeUniques() {
 
         // Charms
 
-        let charm1Code = 'c' + (skillTreeIndex < 10 ? '0' : '') + skillTreeIndex;
-        addUniqueCharm('Snake-oil flavored rock', 'Annihilus', 'charm', 50, 35, charm1Code, 1, 1,
-            'allskills', null, 3, 3,
-            'regen', null, 50, 50,
-            'enr/lvl', null, 4, 4,
-            'gethit-skill', skillTreeIndex / 2 + 11, 5, 30,
-            'death-skill', 'Blizzard', 100, 50,
-            'death-skill', 'Meteor', 100, 50,
-            'death-skill', 'Nova', 100, 50,
-            'crush', null, 50, 50,
-            'str/lvl', 4, null, null,
-            'dex/lvl', 4, null, null)
-
         let charm2Code = 'z' + (skillTreeIndex < 10 ? '0' : '') + skillTreeIndex;
         addUniqueCharm('Glowing artifact of Tristram', 'Annihilus', 'charm', 50, 35, charm2Code, 1, 1,
             'skilltab', skillTreeIndex, 5, 5,
@@ -360,6 +347,20 @@ function addSorcSkillTreeUniques() {
 }
 
 function addGeneralUniques() {
+
+    // Charms
+
+    addUniqueCharm('Snake-oil flavored rock', 'Annihilus', 'charm', 50, 35, 'c01', 1, 1,
+        'allskills', null, 3, 3,
+        'regen', null, 50, 50,
+        'enr/lvl', null, 4, 4,
+        'gethit-skill', Math.floor(Math.random() * 40) + 1, 5, 30,
+        'death-skill', 'Blizzard', 100, 50,
+        'death-skill', 'Meteor', 100, 50,
+        'death-skill', 'Nova', 100, 50,
+        'crush', null, 50, 50,
+        'str/lvl', 4, null, null,
+        'dex/lvl', 4, null, null)
 
     // Rings
 
