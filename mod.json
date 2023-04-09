@@ -3,5 +3,14 @@
   "description": "Adds new unique rings, charms, amulets and a full sorc equipment. The charms don't seem to drop, so you can buy them at Gheed's. Warning: These uniques are ridiculously overpowered and can take all challenge out of the game.",
   "author": "erSch",
   "website": "https://www.nexusmods.com/diablo2resurrected/mods/347",
-  "version": "1.0"
+  "version": "1.1",
+  "config": [
+    {
+      "id": "useLegacySnakeOilCharm",
+      "type": "checkbox",
+      "name": "Use legacy Snake-oil flavored rock",
+      "description": "In case your game won't start any more, enable this option, remove all Snake-oil flavored rocks from all chars and stashes and then turn this option back off.",
+      "defaultValue": "false"
+    }
+  ]
 }

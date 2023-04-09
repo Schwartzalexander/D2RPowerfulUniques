@@ -157,8 +157,23 @@ function addSkillTreeUniques() {
 
         // Charms
 
+        if (config.useLegacySnakeOilCharm) {
+            let charm1Code = 'c' + (skillTreeIndex < 10 ? '0' : '') + skillTreeIndex;
+            addUniqueCharm('Snake-oil flavored rock', 'Annihilus', 'charm', 50, 1, charm1Code, 1, 1,
+                'allskills', null, 3, 3,
+                'regen', null, 50, 50,
+                'enr/lvl', null, 4, 4,
+                'gethit-skill', skillTreeIndex / 2 + 11, 5, 30,
+                'death-skill', 'Blizzard', 100, 50,
+                'death-skill', 'Meteor', 100, 50,
+                'death-skill', 'Nova', 100, 50,
+                'crush', null, 50, 50,
+                'str/lvl', 4, null, null,
+                'dex/lvl', 4, null, null)
+        }
+
         let charm2Code = 'z' + (skillTreeIndex < 10 ? '0' : '') + skillTreeIndex;
-        addUniqueCharm('Glowing artifact of Tristram', 'Annihilus', 'charm', 50, 35, charm2Code, 1, 1,
+        addUniqueCharm('Glowing artifact of Tristram', 'Annihilus', 'charm', 50, 1, charm2Code, 1, 1,
             'skilltab', skillTreeIndex, 5, 5,
             'mana%', null, 25, 25,
             'hp%', null, 25, 25,
@@ -348,20 +363,6 @@ function addSorcSkillTreeUniques() {
 
 function addGeneralUniques() {
 
-    // Charms
-
-    addUniqueCharm('Snake-oil flavored rock', 'Annihilus', 'charm', 50, 35, 'c01', 1, 1,
-        'allskills', null, 3, 3,
-        'regen', null, 50, 50,
-        'enr/lvl', null, 4, 4,
-        'gethit-skill', Math.floor(Math.random() * 40) + 1, 5, 30,
-        'death-skill', 'Blizzard', 100, 50,
-        'death-skill', 'Meteor', 100, 50,
-        'death-skill', 'Nova', 100, 50,
-        'crush', null, 50, 50,
-        'str/lvl', 4, null, null,
-        'dex/lvl', 4, null, null)
-
     // Rings
 
     addUniqueItem('Rainbow ring', 'Nagelring', 'Ring', 10, 75, 'rin', 555555, 100000,
@@ -403,6 +404,21 @@ function addGeneralUniques() {
         'pierce-pois', 0, 10, 20,
         'pierce-cold', 0, 10, 20,
         'pierce-fire', 0, 10, 20);
+
+    // Charms
+
+    if (!config.useLegacySnakeOilCharm)
+        addUniqueCharm('Snake-oil flavored rock', 'Annihilus', 'charm', 50, 1, 'sor', 1, 1,
+            'allskills', null, 3, 3,
+            'regen', null, 50, 50,
+            'enr/lvl', null, 4, 4,
+            'gethit-skill', skillTreeIndex / 2 + 11, 5, 30,
+            'death-skill', 'Blizzard', 100, 50,
+            'death-skill', 'Meteor', 100, 50,
+            'death-skill', 'Nova', 100, 50,
+            'crush', null, 50, 50,
+            'str/lvl', 4, null, null,
+            'dex/lvl', 4, null, null)
 }
 
 function getPierceElementName(skillTreeIndex) {
@@ -465,16 +481,8 @@ function addUniqueItem(itemName, referanceItemName, baseItemName = null, rarity,
         'lvl req': lvl,
         code,
         '*ItemName': baseItemName ? baseItemName : itemName.toLowerCase(),
-        carry1: null,
         'cost mult': costMult,
         'cost add': costAdd,
-        chrtransform: null,
-        invtransform: null,
-        flippyfile: null,
-        invfile: null,
-        dropsound: null,
-        dropsfxframe: null,
-        usesound: null,
         prop1, par1, min1, max1,
         prop2, par2, min2, max2,
         prop3, par3, min3, max3,
