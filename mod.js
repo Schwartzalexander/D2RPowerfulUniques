@@ -157,21 +157,23 @@ function addSkillTreeUniques() {
 
         // Charms
 
-        let charm1Code = 'c' + (skillTreeIndex < 10 ? '0' : '') + skillTreeIndex;
-        addUniqueCharm('Snake-oil flavored rock', 'Annihilus', 'charm', 50, 35, charm1Code, 1, 1,
-            'allskills', null, 3, 3,
-            'regen', null, 50, 50,
-            'enr/lvl', null, 4, 4,
-            'gethit-skill', skillTreeIndex / 2 + 11, 5, 30,
-            'death-skill', 'Blizzard', 100, 50,
-            'death-skill', 'Meteor', 100, 50,
-            'death-skill', 'Nova', 100, 50,
-            'crush', null, 50, 50,
-            'str/lvl', 4, null, null,
-            'dex/lvl', 4, null, null)
+        if (config.useLegacySnakeOilCharm) {
+            let charm1Code = 'c' + (skillTreeIndex < 10 ? '0' : '') + skillTreeIndex;
+            addUniqueCharm('Snake-oil flavored rock', 'Annihilus', 'charm', 50, 1, charm1Code, 1, 1,
+                'allskills', null, 3, 3,
+                'regen', null, 50, 50,
+                'enr/lvl', null, 4, 4,
+                'gethit-skill', skillTreeIndex / 2 + 11, 5, 30,
+                'death-skill', 'Blizzard', 100, 50,
+                'death-skill', 'Meteor', 100, 50,
+                'death-skill', 'Nova', 100, 50,
+                'crush', null, 50, 50,
+                'str/lvl', 4, null, null,
+                'dex/lvl', 4, null, null)
+        }
 
         let charm2Code = 'z' + (skillTreeIndex < 10 ? '0' : '') + skillTreeIndex;
-        addUniqueCharm('Glowing artifact of Tristram', 'Annihilus', 'charm', 50, 35, charm2Code, 1, 1,
+        addUniqueCharm('Glowing artifact of Tristram', 'Annihilus', 'charm', 50, 1, charm2Code, 1, 1,
             'skilltab', skillTreeIndex, 5, 5,
             'mana%', null, 25, 25,
             'hp%', null, 25, 25,
@@ -402,6 +404,21 @@ function addGeneralUniques() {
         'pierce-pois', 0, 10, 20,
         'pierce-cold', 0, 10, 20,
         'pierce-fire', 0, 10, 20);
+
+    // Charms
+
+    if (!config.useLegacySnakeOilCharm)
+        addUniqueCharm('Snake-oil flavored rock', 'Annihilus', 'charm', 50, 1, 'sor', 1, 1,
+            'allskills', null, 3, 3,
+            'regen', null, 50, 50,
+            'enr/lvl', null, 4, 4,
+            'gethit-skill', skillTreeIndex / 2 + 11, 5, 30,
+            'death-skill', 'Blizzard', 100, 50,
+            'death-skill', 'Meteor', 100, 50,
+            'death-skill', 'Nova', 100, 50,
+            'crush', null, 50, 50,
+            'str/lvl', 4, null, null,
+            'dex/lvl', 4, null, null)
 }
 
 function getPierceElementName(skillTreeIndex) {
